@@ -8,3 +8,10 @@ def loadWords2():
 8.     wordlist = string.split(line)
 9.     print "  ", len(wordlist), "words loaded."
 10.    return wordlist
+
+#this snippet demonstrates looping a file, line by line
+with open('t.ini') as f:
+   for line in f:
+       print line
+       if 'str' in line:
+          break
