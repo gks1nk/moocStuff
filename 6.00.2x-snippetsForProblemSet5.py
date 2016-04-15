@@ -15,3 +15,19 @@ with open('t.ini') as f:
        print line
        if 'str' in line:
           break
+       
+#this is the simple depth first example from the lecture
+#this will need to be modified to work with problem set 5-3
+def DFS(graph, start, end, path = []):
+   # Assumes graph is a Digraph
+   # Assumes start and end are nodes in graph
+   path = path + [start]
+   print 'Current dfs path:', printPath(path)
+   if start == end:
+      return path
+   for node in graph.childrenOf(start):
+      if node not in path: # Avoid cycles
+         newPath = DFS(graph,node,end,path)
+         if newPath != None:
+            return newPath
+   return None
